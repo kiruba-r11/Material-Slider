@@ -1,0 +1,53 @@
+- To make selections from a range of values along a bar.
+- Mostly used on settings like volume or brightness adjustments, or to apply an image filter.
+- Should provide immediate effects and not to be used to adjust settings with delays.
+
+- Types:
+	1. Continuous Slider
+	2. Discrete Slider
+	3. Range Slider (A slider with two thumb)
+
+- Elements of a slider:
+	1. Track
+	2. Thumb
+	3. Value Lable (optional) - displays the value of the thumb
+	4. Tick Mark (optional) - represented in track with predetermined values, where user can directly select the slider.
+
+- Attributes:
+	1. Track Attributes -
+		1.1. valueFrom -> Minimum value of the slider track
+		1.2. valueTo -> Maximum value of the slider track
+		1.3. value -> Set value of the track
+		1.4. stepSize (discrete slider) -> step of values of track that can be selected in discrete slider.
+		1.5. trackColor -> Complete color of the track
+		1.6. trackColorActive -> Color of selected part of track 
+		1.7. trackColorInactive -> Color of unselected part of track
+	2. Thumb Attributes -
+		2.1. thumbColor -> Color of the thumb
+		2.2. haloColor -> Color on outline of thumb when it is pressed
+	3. Value Label Attributes -
+		3.1. labelBehavior -> to label the slider value (use gone, for not labelling)
+	4. Tick Mark Attributes -
+		4.1. tickColor -> Color of the tick mark
+		4.2. tickColorActive -> Color of the tick mark in selected part of the slider
+		4.3. tickColorInactive -> Color of the tick mark in unselected part of the slider
+		4.4. tickVisible -> To maintain the visibility of the slider
+
+- Listeners:
+	1. slider.addOnChangeListener {slider , value , fromUser -> 
+		// Responds to every value change made in slider
+	}
+	2. slider.addOnSliderTouchListener(object: Slider.OnSliderTouchListener {
+		// Must implement two following methods
+		override fun onStartTrackingTouch(slider: Slider) {
+			// Responds to when slider's touch event started
+		}
+		override fun onStopTrackingTouch(slider: Slider) {
+			// Responds to when slider's touch event stopped
+		}
+	}) 
+
+- Dependancy:
+	implementation "com.google.android.material:material:1.4.0-alpha01"
+
+
